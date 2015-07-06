@@ -1,0 +1,6 @@
+name = Example to Cart nice Message
+description = Сообщение о добавлении товара в модальном окне.
+package = Custom
+
+version = "7.x-1"
+core = "7.x"

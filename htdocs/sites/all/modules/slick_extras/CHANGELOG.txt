@@ -1,0 +1,5 @@
+
+
+Slick extras 7.x-2.0-dev, 2015-5-31
+----------------------------------
+Added CHANGELOG.txt.

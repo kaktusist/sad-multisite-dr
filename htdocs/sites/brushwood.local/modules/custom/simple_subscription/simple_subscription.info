@@ -1,0 +1,15 @@
+name = Simple Subscription
+description = Adds a form in a block for subscribing to a newsletter (or anything else).
+
+package = Custom
+
+dependencies[] = block
+dependencies[] = trigger
+
+core = 7.x
+; Information added by Drupal.org packaging script on 2014-12-30
+version = "7.x-2.0-alpha1+5-dev"
+core = "7.x"
+project = "simple_subscription"
+datestamp = "1419953882"
+

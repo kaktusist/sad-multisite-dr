@@ -1,0 +1,133 @@
+@charset "UTF-8";
+@font-face{
+  font-family: 'ProximaNova-Light';
+   src: url('../fonts/ProximaNova-Light/proximanova-light.eot'); /* IE9 */
+   src: url('../fonts/ProximaNova-Light/proximanova-light.eot?') format('eot'),  /* IE6-IE8 */
+   url('../fonts/ProximaNova-Light/proximanova-light.woff') format('woff'), /* Современные браузеры */
+   url('../fonts/ProximaNova-Light/proximanova-light.ttf')  format('truetype'); /* Safari, Android, iOS */
+   }
+@font-face{
+  font-family: 'ProximaNovaExCn-Thin';
+   src: url('../fonts/ProximaNovaExCn-Thin/proximanovaexcn-thin.eot'); /* IE9 */
+   src: url('../fonts/ProximaNovaExCn-Thin/proximanovaexcn-thin.eot?') format('eot'),  /* IE6-IE8 */
+   url('../fonts/ProximaNovaExCn-Thin/proximanovaexcn-thin.woff') format('woff'), /* Современные браузеры */
+   url('../fonts/ProximaNovaExCn-Thin/proximanovaexcn-thin.ttf')  format('truetype'); /* Safari, Android, iOS */
+   }
+@font-face{
+  font-family: 'HelveticaNeue-Light';
+   src: url('../fonts/HelveticaNeue-Light/HelveticaNeue-Light'); /* IE9 */
+   src: url('../fonts/HelveticaNeue-Light/HelveticaNeue-Light.eot?') format('eot'),  /* IE6-IE8 */
+   url('../fonts/HelveticaNeue-Light/HelveticaNeue-Light.woff') format('woff'), /* Современные браузеры */
+   url('../fonts/HelveticaNeue-Light/HelveticaNeue-Light.ttf')  format('truetype'); /* Safari, Android, iOS */
+   }
+@font-face{
+  font-family: 'StudioScript';
+   src: url('../fonts/Studioscript/studioscript.eot'); /* IE9 */
+   src: url('../fonts/Studioscript/studioscript.eot?') format('eot'),  /* IE6-IE8 */
+   url('../fonts/Studioscript/studioscript.woff') format('woff'), /* Современные браузеры */
+   url('../fonts/Studioscript/studioscript.ttf')  format('truetype'); /* Safari, Android, iOS */
+   }
+
+   body {font-family: 'ProximaNova-Light';}
+   h1, h2, h3, h4 {font-family: 'ProximaNova-Light';}
+   .row {max-width: 73.125em;}
+
+/* ============= Header ================= */
+.l-header-region {
+background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */}
+
+/* ========== Footer ====================== */ 
+   .footer {background: #607D8B; color: #fff; padding-top: 3em;}
+   .l-footer-two-columns {background: #E6E6E6;}
+   .l-footer-two-columns .subscribe {margin-top: 1em; padding-top: 2em;}
+   .powered-by a {color: #292c2e;}
+   .copyright, .powered-by {font-family: 'ProximaNovaExCn-Thin';}
+   .powered-copy-pay {padding: 1.5em 0; border-top: 2px solid #fff;}
+   .footer-logo {border-bottom: 2px solid #fff; margin-bottom: 1em; padding-bottom: 1em;}
+   .footer-logo img {width: 100%; max-width: 12.1875em; height: auto;}
+   .footer .pay img {max-width: 40px;}
+   .footer .footer-down-one {padding-right: 5em;}
+
+/* =========== Slick ==================== */
+.slick-prev {left: -70px;}
+.slick-next {right: -70px;}
+.slick-prev::before, .slick-next::before {color: #607D8B; font-size: 2.25rem;}
+
+/* ============ Top Bar ================ */
+ @media only screen and (min-width: 40.063em){
+.top-bar-section li:not(.has-form) a:not(.button) {background: #586C78;}
+.top-bar {background: #607D8B;}
+}
+.top-bar-section li:not(.has-form) a:hover:not(.button) {background:#5C80A4;}
+
+/* ========= Header =============== */
+.header-full {background: rgb(238,238,238); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#eeeeee',GradientType=0 ); /* IE6-9 */
+padding: 0.6em 0;}
+.header-full-title {}
+.top-nav {float: right; position: relative;}
+.site-logo {float: left;}
+.site-logo img {width: 180px;}
+.site-name {float: left; padding: 0 0 0 2em;}
+/*.login-Block {display: inline-block; float: left;}*/
+.top-nav {float: right; position: relative;}
+.top-nav .login-Block {display: inline-block;margin-left: 20px;z-index: 60000000;vertical-align: top;}
+.top-bar-section ul li:hover:not(.has-form) > a {background: blue;}
+.top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {background: red;}
+.top-bar-section .dropdown li:hover:not(.has-form):not(.active) > a:not(.button) {background:#ffff00;}
+.top-nav-social {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: inline-block;
+    margin-left: 20px;
+    background-color: #f1f1f1;
+    box-shadow: inset 0 0 1px #ffffff;
+    border: solid 1px #e3e6e8;
+    border-top: 0;
+    overflow: hidden;
+}
+
+/* ================= Slider Rotator ================ */
+.view-slider-rotator {position: relative; z-index: 50;}
+#views_slideshow_cycle_main_slider_rotator-block {position: relative; z-index: 52;}
+#views_slideshow_cycle_main_slider_rotator-block .slider-link-title {position: absolute; bottom: 0; right: 0; z-index: 98; background: rgba(96, 125, 139, 0.8);
+padding: 1em;}
+#views_slideshow_cycle_main_slider_rotator-block .slider-link-title a {color: #fff;}
+#views_slideshow_cycle_main_slider_rotator-block .slider-description {position: absolute; top: 0; margin-left: 250px; background: rgba(51, 51, 51, 0.5);
+color:#fff; padding: 0.5em 1em; z-index: 99;}
+#widget_pager_bottom_slider_rotator-block {position: absolute; top: 0; background: rgba(51, 51, 51, 1); z-index: 100;}
+.views-slideshow-pager-field-item {color: #fff; cursor: pointer; padding: 0.5em 1em;}
+.views-slideshow-pager-field-item.active {color: #fff; font-weight: bold; background: red;}
+
+/* ============= Commerce ==================== */
+.shrub-variants .field-type-commerce-product-reference form.commerce-add-to-cart button.button-add-cart {
+  width: 80%; margin-top: 0.9em; margin-left: 1.5em;}
+.shrub-variants .field-type-commerce-product-reference form.commerce-add-to-cart  .form-type-select select {}
+.shrub-variants .attribute-widgets {margin-bottom: 1.7rem;}
+.form-item-quantity {float: left; margin-bottom: 0; margin-top: 0;}
+.form-item-quantity input {margin: 0;}
+.field-name-field-height h2.field-label {font-size: 1.1rem; line-height: 1; font-family: 'Verdana'; margin: 0.12rem 0 0 0;}
+.field-name-field-width h2.field-label {font-size: 1.1rem; line-height: 1; font-family: 'Verdana'; margin: 0.12rem 0 0 0;}
+.field-name-field-root-system h2.field-label {font-size: 1.1rem; line-height: 1; font-family: 'Verdana'; margin: 0.12rem 0 0 0;}
+.field-name-field-catalog  h2.field-label {font-size: 1.1rem; line-height: 1; font-family: 'Verdana';  margin: 0.12rem 0 0 0;}
+.field-name-commerce-price .field-label {font-family: 'Verdana'; font-size: 1.1rem; line-height: 1.3;}
+.field-name-commerce-stock .field-label {font-family: 'Verdana'; font-size: 1.1rem; line-height: 1.3;}
+.field-type-taxonomy-term-reference ul.inline {margin: 0;}
+.shrub-price {padding: 0.5rem 1rem; border: 1px solid red; background: rgba(96, 125, 139, 0.8); }
+.node-shrub-product .shrub-body .node-body {margin-top: 1rem; border-top: 2px solid #ccc;}
+.node-shrub-product .title-and-price {margin-top: 0.2rem;}
+.views-field-edit-quantity input {margin: 0;}

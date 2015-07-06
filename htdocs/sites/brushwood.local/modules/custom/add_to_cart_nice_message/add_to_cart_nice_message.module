@@ -1,0 +1,108 @@
+<?php
+/**
+ * Добавление js и css файлов для модального окна.
+ */
+function _add_to_cart_nice_message_include_modal() {
+
+  static $added = FALSE;
+  if (!$added) {
+
+    // Не добавлять библиотеки снова.
+    $added = TRUE;
+
+    // Подключаем Ctools библиотеки, которые нужны нам для задачи.
+    ctools_include('modal');
+    ctools_include('ajax');
+    ctools_modal_add_js();
+
+    // Создаем массив с настройками для модального окна.
+    $add_to_cart_nice_message_style = array(
+      'add_to_cart_nice_message-style' => array(
+        'modalSize' => array(
+          'type' => 'fixed',
+          'width' => (int) 550,
+          'height' => (int) 140,
+          'contentRight' => 30,
+          'contentBottom' => 0,
+        ),
+        'modalOptions' => array(
+          'opacity' => (float) 0.8,
+          'background-color' => '#000000',
+        ),
+        'closeText' => '',
+        'closeImage' => theme('image', array('path' => ctools_image_path('close-modal.png', 'add_to_cart_nice_message'))), // Картинка должна лежать в папке images нашего модуля.
+        'animation' => 'fadeIn',
+        'animationSpeed' => 'fast',
+      ),
+    );
+    drupal_add_js($add_to_cart_nice_message_style, 'setting');
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function add_to_cart_nice_message_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
+  // Добавляем css класс для кнопки, чтобы сработали наши настройки для модального окна.
+  $form['submit']['#attributes']['class'][] = 'ctools-modal-add_to_cart_nice_message-style';
+
+  // Добавляем свой AJAX обработчик.
+  $form['submit']['#ajax'] = array('callback' => 'add_to_cart_nice_message_add_to_cart_ajax_callback');
+
+  // Добавляем свой обработчик после отправки формы.
+  $form['#submit'][] = 'add_to_cart_nice_message_add_to_cart_form_submit';
+}
+
+/**
+ * AJAX обработчик добавления товаров в корзину.
+ */
+function add_to_cart_nice_message_add_to_cart_ajax_callback($form, &$form_state) {
+  // Подключаем библиотеки, необходимые для работы модального окна.
+  _add_to_cart_nice_message_include_modal();
+
+  // Убираем из вывода все друпалоские сообщения.
+  drupal_get_messages();
+
+  // Получаем обновленное содержимое корзины.
+  $cart_block = module_invoke('commerce_cart', 'block_view', 'cart');
+
+  // Формируем ссылки для закрытия модального окна и продолжения покупок,
+  // а так же кнопку для перехода в корзину. На самом деле эти кнопки можно и во вьюз всунуть.
+  $links = array();
+  $links[] = '<span class="cart-link-center"><span class="cart-link-left">' . l('Продолжить покупки', '', array('attributes' => array('class' => array('button', 'ctools-close-modal', 'cart-link-right')))) . '</span></span>';
+  $links[] = '<span class="cart-link-center"><span class="cart-link-left">' . l('Оформить заказ', 'cart', array('attributes' => array('class' => array('button', 'cart-link-right')))) . '</span></span>';
+
+  // Создаем рендерный массив, который потом отдадим в модальное окно.
+  $modal = array();
+
+  // Загружаем ранее созданный вьюз, первый параметр машинное имя вьюза, второй машинное имя дисплея,
+  // третий параметр это id добавляемого товара, который принимает вьюз в виде аргумента.
+  $modal['product']['#markup'] = commerce_embed_view('confirm_message_product_display', 'master', array($form_state['values']['product_id']));
+
+  // Добавляем в рендерный массив ссылки, которые создали ранее.
+  $modal['actions'] = array(
+    '#theme' => 'item_list',
+    '#items' => $links,
+    '#attributes' => array(
+      'class' => array('cart-links'),
+    ),
+  );
+
+  // Формируем команды для AJAX.
+  $commands = array();
+
+  // Обновляем содержимое корзины.
+  $commands[] = ajax_command_html('#block-commerce-cart-cart div.content', render($cart_block['content']));
+
+  // Выводим модальное окно. Первый параметр, заголовок модального окна, второй - его содержимое.
+  $commands[] = ctools_modal_command_display('Ваши покупки', render($modal));
+
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
+
+/**
+ * Обработчик отправки формы после добавления товаров в корзину.
+ */
+function add_to_cart_nice_message_add_to_cart_form_submit($form, &$form_state){
+  $form_state['rebuild'] = TRUE;
+}

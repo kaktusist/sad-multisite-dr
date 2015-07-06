@@ -1,0 +1,12 @@
+name = "Commerce Multicurrency provider for RUB"
+package = "Commerce"
+description = "Central Bank of the Russian Federation as currency exchange rate sync provider for Commerce multicurrency"
+core = "7.x"
+dependencies[]="commerce_multicurrency"
+
+; Information added by Drupal.org packaging script on 2014-03-25
+version = "7.x-1.3"
+core = "7.x"
+project = "commerce_multicurrency_rub"
+datestamp = "1395769458"
+
